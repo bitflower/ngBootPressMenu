@@ -1,0 +1,27 @@
+{
+  "name": "ngBootPressMenu",
+  "version": "1.0.0",
+  "homepage": "https://github.com/bitflower/ngBootPressMenu",
+  "authors": [
+    "Matthias Max <matthias.max@bitflower.net>"
+  ],
+  "description": "An Angular Bootstrap/Wordpress menu directive for usage with the B3 Wordpress REST API.",
+  "main": "./src/bootPressMenu.js",
+  "keywords": [
+    "Angular",
+    "Bootstrap",
+    "Menu",
+    "Wordpress",
+    "B3",
+    "REST",
+    "API"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
