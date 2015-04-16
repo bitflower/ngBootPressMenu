@@ -2,7 +2,7 @@
 A collection of Angular services &amp; directives for easily integrating a Bootstrap menu from a REST API.
 
 # Installation
-bower install ngBootPressMenu --save
+    bower install ngBootPressMenu --save
 
 # Usage
 ***
