@@ -40,7 +40,7 @@
      * @description
      * # ngB3restWordpressBootstrapNavbar
      */
-    app.directive('ngB3restWordpressBootstrapNavbar', [function() {
+    app.directive('bootPressMenu', [function() {
         return {
             restrict: 'AE',
             scope: {
