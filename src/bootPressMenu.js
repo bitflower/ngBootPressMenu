@@ -56,7 +56,7 @@
             // template: '<nav class="navbar" ng-class="{\'navbar-inverse\': inverse,\'navbar-default\': !inverse,\'navbar-fixed-top\': affixed == \'top\',\'navbar-fixed-bottom\': affixed == \'bottom\'}" role="navigation"><div class="container-fluid"><div class="navbar-header"><button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu"><span class="sr-only">Toggle Navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="navbar-brand" ng-click="noop()" ng-bind-html="haveBranding()"></a></div><div class="collapse navbar-collapse" id="navbar-menu"><ul class="nav navbar-nav" ng-if="hasMenus()"><li ng-repeat="menu in menus" ng-class="{true: \'dropdown\'}[hasDropdownMenu(menu)]"><a ng-if="!hasDropdownMenu(menu)" ng-click="navAction(menu.action)" ng-href="{{menu.link}}">{{menu.title}}</a><a ng-if="hasDropdownMenu(menu)" class="dropdown-toggle" data-toggle="dropdown">{{menu.title}} <b class="caret"></b></a><ul ng-if="hasDropdownMenu(menu)" class="dropdown-menu"><li ng-repeat="item in menu.menu" ng-class="{true: \'divider\'}[isDivider(item)]"><a ng-if="!isDivider(item)" ng-click="navAction(item.action)">{{item.title}}</a></li></ul></li></ul><form ng-if="search.show" class="navbar-form navbar-right" role="search"><div class="form-group"><input type="text" class="form-control" placeholder="Search" ng-model="search.terms"><button class="btn btn-default" type="button" ng-click="searchfn()"><span class="glyphicon glyphicon-search"></span></button></div></form></div></div></nav>',
             //template: '<ul class="nav nav-pills" ng-if="menus.length>0"><li ng-repeat="menu in menus" ng-class="{true: \'dropdown\'}[hasDropdownMenu(menu)]"><a ng-if="!hasDropdownMenu(menu)" ng-href="{{menu.link}}">{{menu.title}}</a><a ng-if="hasDropdownMenu(menu)" class="dropdown-toggle" data-toggle="dropdown">{{menu.title}} <b class="caret"></b></a><ul ng-if="hasDropdownMenu(menu)" class="dropdown-menu"><li ng-repeat="item in menu.menu" ng-class="{true: \'divider\'}[isDivider(item)]"><a ng-if="!isDivider(item)" ng-click="navAction(item.action)">{{item.title}}</a></li></ul></li></ul>',
             template: '<div>' +
-                '<ul class="nav nav-pills" ng-if="menus.length>0">' +
+                '<ul class="{{styles.classes.menuclasses}}" ng-if="menus.length>0">' +
                 ' <li ng-repeat="menu in ::menus" ng-class="[styles.classes.liclass, {true: \'dropdown\'}[hasDropdownMenu(menu)] ]">' +
                 '  <a ng-if="!hasDropdownMenu(menu)" ng-href="{{menu.link}}" ng-click="activate({{menu.objectId}})" ng-class="{\'active\': space.activeId=={{menu.objectId}} }">{{::menu.title}}</a>' +
                 '  <a ng-if="hasDropdownMenu(menu)" class="dropdown-toggle" data-toggle="dropdown" ng-class="{\'active\': space.activeParentId=={{menu.ID}} }">{{menu.title}} <b class="caret"></b></a>' +
@@ -149,7 +149,8 @@
                 $scope.styles = {
                     classes: {}
                 };
-                $scope.styles.classes.liclass = $attrs.liclass;
+                $scope.styles.classes.liclass = $attrs.liclass || '';
+                $scope.styles.classes.menuclasses = $attrs.menuclasses || 'nav nav-pills';
 
                 //=== Observers & Listeners ===//
 
